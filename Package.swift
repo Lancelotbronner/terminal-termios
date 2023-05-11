@@ -14,7 +14,5 @@ let package = Package(
 	targets: [
 		.target(name: "CTermios"),
 		.target(name: "Termios", dependencies: ["CTermios"]),
-		
-		.testTarget(name: "TermiosTests", dependencies: ["Termios"]),
 	]
 )

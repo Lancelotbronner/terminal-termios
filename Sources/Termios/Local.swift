@@ -9,16 +9,6 @@ import Darwin.POSIX.termios
 
 extension termios {
 
-	@inlinable public var echo: Bool {
-		get { get(flag: ECHO, from: c_lflag) }
-		set { set(flag: ECHO, to: newValue, in: &c_cflag) }
-	}
-
-	@inlinable public var echonl: Bool {
-		get { get(flag: ECHONL, from: c_lflag) }
-		set { set(flag: ECHONL, to: newValue, in: &c_cflag) }
-	}
-
 	@inlinable public var echoke: Bool {
 		get { get(flag: ECHOKE, from: c_lflag) }
 		set { set(flag: ECHOKE, to: newValue, in: &c_cflag) }
@@ -34,9 +24,14 @@ extension termios {
 		set { set(flag: ECHOK, to: newValue, in: &c_cflag) }
 	}
 
-	@inlinable public var icanon: Bool {
-		get { get(flag: ICANON, from: c_lflag) }
-		set { set(flag: ICANON, to: newValue, in: &c_cflag) }
+	@inlinable public var echo: Bool {
+		get { get(flag: ECHO, from: c_lflag) }
+		set { set(flag: ECHO, to: newValue, in: &c_cflag) }
+	}
+
+	@inlinable public var echonl: Bool {
+		get { get(flag: ECHONL, from: c_lflag) }
+		set { set(flag: ECHONL, to: newValue, in: &c_cflag) }
 	}
 
 	@inlinable public var echoprt: Bool {
@@ -49,14 +44,19 @@ extension termios {
 		set { set(flag: ECHOCTL, to: newValue, in: &c_cflag) }
 	}
 
-	@inlinable public var altwerase: Bool {
-		get { get(flag: ALTWERASE, from: c_lflag) }
-		set { set(flag: ALTWERASE, to: newValue, in: &c_cflag) }
-	}
-
 	@inlinable public var isig: Bool {
 		get { get(flag: ISIG, from: c_lflag) }
 		set { set(flag: ISIG, to: newValue, in: &c_lflag) }
+	}
+
+	@inlinable public var icanon: Bool {
+		get { get(flag: ICANON, from: c_lflag) }
+		set { set(flag: ICANON, to: newValue, in: &c_cflag) }
+	}
+
+	@inlinable public var altwerase: Bool {
+		get { get(flag: ALTWERASE, from: c_lflag) }
+		set { set(flag: ALTWERASE, to: newValue, in: &c_cflag) }
 	}
 
 	@inlinable public var iexten: Bool {
