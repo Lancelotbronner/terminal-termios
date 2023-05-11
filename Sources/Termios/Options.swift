@@ -33,13 +33,10 @@ extension ParityChecking {
 
 extension UpdateScheduling {
 
-	/// The change should take place immediately.
 	public static let now = UpdateScheduling(rawValue: TCSANOW)
 
-	/// The change should take place after all output written has been read by the master pseudoterminal. Use this value when changing terminal attributes that affect output.
 	public static let drain = UpdateScheduling(rawValue: TCSADRAIN)
 
-	/// The change should take place after all output written has been sent; in addition, all input that has been received but not read should be discarded (flushed) before the change is made.
 	public static let flush = UpdateScheduling(rawValue: TCSAFLUSH)
 
 	#if os(macOS)

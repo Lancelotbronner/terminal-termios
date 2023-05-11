@@ -9,7 +9,7 @@ import Darwin.POSIX.termios
 
 public struct TermiosError: RawRepresentable, Error {
 
-	public var rawValue: errno_t
+	public let rawValue: errno_t
 
 	@inlinable public init(rawValue: errno_t) {
 		self.rawValue = rawValue
