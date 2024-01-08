@@ -5,8 +5,7 @@
 //  Created by Christophe Bronner on 2023-05-11.
 //
 
-import Darwin.POSIX.termios
-@_implementationOnly import CTermios
+import CTermios
 
 extension termios {
 

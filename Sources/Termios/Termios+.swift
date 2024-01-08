@@ -5,7 +5,7 @@
 //  Created by Christophe Bronner on 2023-05-11.
 //
 
-import Darwin.POSIX.termios
+import CTermios
 
 #warning("TODO: check which API are macOS only")
 #warning("TODO: transfer man pages into documentation articles")
@@ -23,12 +23,12 @@ public struct Termios: RawRepresentable {
 	/// Retrieves the standard input's current configuration
 	@inlinable public static var current: Termios {
 		get throws {
-			Termios(rawValue: try termios(STDIN_FILENO))
+			Termios(rawValue: try termios(STDOUT_FILENO))
 		}
 	}
 
 	@inlinable public func write(when schedule: UpdateScheduling = .now) throws {
-		try rawValue.write(to: STDIN_FILENO, on: schedule)
+		try rawValue.write(to: STDOUT_FILENO, on: schedule)
 	}
 
 	//MARK: - Raw Mode
@@ -36,7 +36,7 @@ public struct Termios: RawRepresentable {
 	/// Preset configuration with pure I/O
 	@inlinable public static var raw: Termios {
 		get throws {
-			var configuration = try termios(STDIN_FILENO)
+			var configuration = try termios(STDOUT_FILENO)
 			configuration.raw()
 			return Termios(rawValue: configuration)
 		}
@@ -46,9 +46,9 @@ public struct Termios: RawRepresentable {
 	@inlinable public func raw(execute block: () -> Void) throws {
 		var tmp = rawValue
 		tmp.raw()
-		try tmp.write(to: STDIN_FILENO, on: .now)
+		try tmp.write(to: STDOUT_FILENO, on: .now)
 		block()
-		try rawValue.write(to: STDIN_FILENO, on: .now)
+		try rawValue.write(to: STDOUT_FILENO, on: .now)
 	}
 
 }

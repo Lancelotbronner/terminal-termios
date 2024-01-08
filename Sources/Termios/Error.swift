@@ -5,7 +5,7 @@
 //  Created by Christophe Bronner on 2023-05-11.
 //
 
-import Darwin.POSIX.termios
+import CTermios
 
 public struct TermiosError: RawRepresentable, Error {
 

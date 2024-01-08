@@ -5,7 +5,7 @@
 //  Created by Christophe Bronner on 2021-12-26.
 //
 
-import Darwin.POSIX.termios
+import CTermios
 
 /// The NL and CR characters cannot be changed.  The values for all the remaining characters can be set and are
 /// described later in the document under Special Control Characters.

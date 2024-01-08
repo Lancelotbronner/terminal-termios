@@ -5,7 +5,7 @@
 //  Created by Christophe Bronner on 2022-01-04.
 //
 
-import Darwin.POSIX.termios
+import CTermios
 
 public struct CharacterSize: RawRepresentable {
 
